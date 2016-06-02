@@ -262,17 +262,18 @@ public class XarEntry {
             // empty files might have no checksum set
             return;
         }
-        final FileInputStream targetFileInputStream = FileUtils.openInputStream(targetFile);
         String hash = null;
-        switch (checksumAlgorithm) {
-            case SHA1:
-                hash = DigestUtils.sha1Hex(targetFileInputStream);
-                break;
-            case MD5:
-                hash = DigestUtils.md5Hex(targetFileInputStream);
-                break;
-            case NONE:
-                return;
+        try(InputStream targetFileInputStream = FileUtils.openInputStream(targetFile)) {
+          switch (checksumAlgorithm) {
+              case SHA1:
+                  hash = DigestUtils.sha1Hex(targetFileInputStream);
+                  break;
+              case MD5:
+                  hash = DigestUtils.md5Hex(targetFileInputStream);
+                  break;
+              case NONE:
+                  return;
+          }
         }
 
         if (!checksum.equals(hash)) {
