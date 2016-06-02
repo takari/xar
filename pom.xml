@@ -6,7 +6,7 @@
         <artifactId>takari</artifactId>
         <version>22</version>
     </parent>
-    <groupId>com.sprylab</groupId>
+    <groupId>io.takari</groupId>
     <artifactId>xar</artifactId>
     <version>0.8.6-SNAPSHOT</version>
     <packaging>takari-jar</packaging>
