@@ -7,7 +7,7 @@
     </parent>
     <groupId>io.takari</groupId>
     <artifactId>xar</artifactId>
-    <version>0.8.7</version>
+    <version>0.8.8-SNAPSHOT</version>
     <packaging>takari-jar</packaging>
 
     <name>sprylab Xar</name>
@@ -18,7 +18,7 @@
         <connection>scm:git:https://github.com/sprylab/xar.git</connection>
         <developerConnection>scm:git:git@github.com:sprylab/xar.git</developerConnection>
         <url>https://github.com/sprylab/xar</url>
-        <tag>xar-0.8.7</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
