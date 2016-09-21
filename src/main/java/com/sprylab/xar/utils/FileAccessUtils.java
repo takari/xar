@@ -28,9 +28,10 @@ public class FileAccessUtils {
 
     public static InputStream createLimitedBufferedInputStream(final File file, final long offset,
                                                                final long length) throws IOException {
-        final FileInputStream fileInputStream = FileUtils.openInputStream(file);
-        fileInputStream.skip(offset);
-        return IOUtils.toBufferedInputStream(new BoundedInputStream(fileInputStream, length));
+        try(FileInputStream fileInputStream = FileUtils.openInputStream(file)) {
+          fileInputStream.skip(offset);
+          return IOUtils.toBufferedInputStream(new BoundedInputStream(fileInputStream, length));
+        }
     }
 
 }
